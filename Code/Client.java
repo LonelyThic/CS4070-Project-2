@@ -20,8 +20,9 @@ public class Client {
             Scanner scanner = new Scanner(System.in);
 
             // Initial messages
-            System.out.println(in.readLine());
-            System.out.println(in.readLine());
+            for (int i = 0; i < 5; i++) {
+                    System.out.println(in.readLine());
+            }
 
             while (true) {
                 System.out.print("Enter command: ");

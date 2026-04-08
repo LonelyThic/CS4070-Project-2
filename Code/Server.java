@@ -26,6 +26,9 @@ public class Server {
             // Initial messages
             out.println("server: got connection from client " + clientIP);
             out.println("Server is ready...");
+            out.println("Available commands:");
+            out.println("UPPERCASE");
+            out.println("REVERSE"); 
 
             String command;
 
