@@ -20,7 +20,7 @@ public class Client {
             Scanner scanner = new Scanner(System.in);
 
             // Initial messages
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 7; i++) {
                     System.out.println(in.readLine());
             }
 
@@ -61,6 +61,46 @@ public class Client {
                     out.println(text);
                     System.out.println("s: " + in.readLine());
                 }
+
+                else if(command.equals("LOWERCASE")){
+                    String line;
+                    while(true){
+                        System.out.print("Enter text (end with .): ");
+                        line = scanner.nextLine();
+                        out.println(line);
+                        if (line.equals(".")) break;
+                    }
+
+                    while (true) {
+                        socket.setSoTimeout(500);
+                        try {
+                            String result = in.readLine();
+                            if (result == null) break;
+                            System.out.println("s: " + result);
+
+                        }catch(IOException e){
+                            break;
+                        }
+
+
+
+
+
+
+                    }
+
+                    socket.setSoTimeout(0);
+
+
+
+
+                }
+                else if (command.equals("EXIT")){
+                    break;
+                }
+
+
+
             }
 
         } catch (IOException e) {
