@@ -28,7 +28,9 @@ public class Server {
             out.println("Server is ready...");
             out.println("Available commands:");
             out.println("UPPERCASE");
+            out.println("LOWERCASE");
             out.println("REVERSE"); 
+            out.println("EXIT");
 
             String command;
 
@@ -45,9 +47,19 @@ public class Server {
                     String reversed = new StringBuilder(msg).reverse().toString();
                     out.println(reversed);
 
+                } else if (command.equals("LOWERCASE")) {
+                    out.println("200 OK");
+                    handleLowercase(in, out);
+
+                }else if (command.equals("EXIT")){
+                    out.println("200 OK");
+                    System.out.println(clientIP+ " sends EXIT");
+                    break;
+
                 } else {
                     out.println("400: Not a valid command!");
                 }
+
             }
 
             clientSocket.close();
@@ -63,5 +75,20 @@ public class Server {
         while (!(line = in.readLine()).equals(".")) {
             out.println(line.toUpperCase());
         }
+
     }
-}
+
+    private static void handleLowercase(BufferedReader in, PrintWriter out) throws IOException {
+        String line;
+        while(true){
+            line= in.readLine();
+            if( line.equals("."))break;
+            out.println(line.toLowerCase());
+
+        }
+        }
+
+    }
+
+
+    
